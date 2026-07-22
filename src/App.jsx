@@ -113,6 +113,24 @@ const dailyQuestions = [
   "O que melhorar amanhã?" ,
 ];
 
+// ─── DATE HELPERS ─────────────────────────────────────────────────────────────
+// Retorna a data de hoje no formato YYYY-MM-DD, usada como chave para
+// guardar dados por dia e para escolher a pergunta/estado de forma estável.
+function getTodayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+// Escolhe um item de uma lista de forma determinística a partir de uma string
+// (ex: a data de hoje) — assim o mesmo dia sempre mostra o mesmo item.
+function pickForToday(list, seedStr) {
+  let hash = 0;
+  for (let i = 0; i < seedStr.length; i++) {
+    hash = (hash * 31 + seedStr.charCodeAt(i)) >>> 0;
+  }
+  return list[hash % list.length];
+}
+
 // ─── TAG CONFIG ───────────────────────────────────────────────────────────────
 
 const TAG_CONFIG = {
@@ -143,24 +161,26 @@ const NAV_TABS = [
 // ─── HABIT TRACKER COMPONENT ──────────────────────────────────────────────────
 
 function HabitTracker() {
+  const storageKey = `x10habits_${getTodayKey()}`;
+
   const [state, setState] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("x10habits") || "{}"); } catch { return {}; }
+    try { return JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch { return {}; }
   });
 
   const toggle = (key) => {
     const next = { ...state, [key]: !state[key] };
     setState(next);
-    localStorage.setItem("x10habits", JSON.stringify(next));
+    localStorage.setItem(storageKey, JSON.stringify(next));
   };
 
   const reset = () => {
-    if (window.confirm("Reiniciar todos os hábitos para amanhã?")) {
+    if (window.confirm("Reiniciar todos os hábitos de hoje?")) {
       setState({});
-      localStorage.setItem("x10habits", "{}");
+      localStorage.setItem(storageKey, "{}");
     }
   };
 
-  const total = 12;
+  const total = Object.values(habitsData).reduce((sum, arr) => sum + arr.length, 0);
   const done = Object.values(state).filter(Boolean).length;
   const pct = Math.round((done / total) * 100);
 
@@ -528,7 +548,7 @@ function WeekSection() {
 // ─── X10 IA SECTION ───────────────────────────────────────────────────────────
 
 function X10IASection() {
-  const question = dailyQuestions[Math.floor(Math.random() * dailyQuestions.length)];
+  const question = pickForToday(dailyQuestions, getTodayKey());
   const [mission, setMission] = useState(() => localStorage.getItem("x10mission") || "");
   const [reflection, setReflection] = useState(() => localStorage.getItem("x10reflection") || "");
 
