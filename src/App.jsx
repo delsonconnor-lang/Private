@@ -5,83 +5,83 @@ import { useState, useEffect, useRef } from "react";
 const scheduleData = {
   manha: {
     label: "MANHÃ",
-    period: "05:30 → 11:00",
+    period: "05:30 → 11:20",
     icon: "☀️",
     accentColor: "#F7B731",
     blocks: [
-      { time:"05:30", dur:"15min", title:"Despertar & Hidratação", desc:"Água com limão, respiração profunda, 3 coisas pelas quais és grato.", tip:"Coloca um copo d'água na mesa de cabeceira antes de dormir.", tags:["saúde"], icon:"🌅" },
-      { time:"05:45", dur:"20min", title:"Devocional & Oração", desc:"Leitura bíblica, entrega do dia ao Senhor. Define 1 versículo foco.", tip:"Este bloco alimenta tudo o resto — nunca o saltes.", tags:["fé"], icon:"🙏" },
-      { time:"06:05", dur:"30min", title:"Treino de Médio-Campista ⚽", desc:"Os teus 30min de exercícios específicos da posição. Consistência > intensidade.", tip:"Prepara o equipamento na noite anterior. Zero atrito = zero desculpas.", tags:["saúde","desporto"], icon:"⚽", isHighlight:true, highlightColor:"#2DD4BF" },
-      { time:"06:35", dur:"30min", title:"Banho Frio + Cuidados Pessoais", desc:"Banho frio activa cortisol natural, aumenta energia e estado de alerta.", tip:"Últimos 30 segundos em água fria — muda completamente o estado mental.", tags:["saúde"], icon:"🚿" },
-      { time:"07:05", dur:"25min", title:"Pequeno-Almoço Power", desc:"Proteína + carboidratos complexos + fruta + água. Combustível cerebral.", tip:"Evita açúcar — destrói o foco em menos de 1 hora.", tags:["nutrição"], icon:"🍳" },
-      { time:"07:30", dur:"90min", title:"DEEP WORK #1 — Aprendizagem Matinal", desc:"Um(a) video/aula 30min → Um livro 30min → Prática 30min.", tip:"Modo avião no telemóvel. Sem redes sociais. É o teu bloco mais valioso. De acordo a ROTAÇÃO SEMANAL", tags:["estudo"], icon:"🧠", isDeep:true },
-      { time:"09:00", dur:"45min", title:"Gestão: Recreio e Desporto + Afro Studio", desc:"Mensagens urgentes, tarefas da semana, Recreio e Desporto da JIMUCL, fotos pendentes.", tip:"Limite rígido de 45min. Usa lista de prioridades para não desviar.", tags:["ministério","trabalho"], icon:"📋" },
-      { time:"09:45", dur:"75min", title:"Preparação & Organização de Saída", desc:"Rever plano do dia, preparar material de estudo, arrumar. Saída às 11h pontual.", tip:"Escreve as 3 prioridades do dia numa folha antes de sair.", tags:["logística"], icon:"🎒" },
+      { time:"05:30", dur:"10min", title:"Acordar + Orar", desc:"Respiração profunda, Água com limão e sal.", tip:"Coloca um copo ou garrafa d'água na mesa de cabeceira antes de dormir.", tags:["saúde"], icon:"🌅" },
+      { time:"05:40", dur:"20min", title:"Devocional & Oração", desc:"Leitura de 3 versículos, entrega do dia ao Senhor.", tip:"Este bloco alimenta tudo o resto — nunca o saltes.", tags:["fé"], icon:"🙏" },
+      { time:"06:00", dur:"30min", title:"Treino de Médio-Campista ⚽", desc:"Os teus 30min de exercícios específicos da posição. Consistência > intensidade.", tip:"Prepara o equipamento na noite anterior. Zero atrito = zero desculpas.", tags:["saúde","desporto"], icon:"⚽", isHighlight:true, highlightColor:"#2DD4BF" },
+      { time:"06:30", dur:"01h40min", title:"Trabalhos de casa + Cuidados Pessoais", desc:"Organizar a casa, banho frio activa cortisol natural, aumenta energia e estado de alerta.", tip:"Últimos 30 segundos em água fria — muda completamente o estado mental.", tags:["saúde"], icon:"🚿" },
+      { time:"08:10", dur:"90min", title:"DEEP WORK #1 — Aprendizagem Matinal", desc:"Um(a) video/aula 30min → Um livro 30min → Prática 30min.", tip:"Modo avião no telemóvel. Sem redes sociais. É o teu bloco mais valioso. De acordo a ROTAÇÃO SEMANAL", tags:["estudo"], icon:"🧠", isDeep:true },
+      { time:"09:40", dur:"30min", title:"Pequeno-Almoço Power", desc:"Proteína + carboidratos complexos + fruta + água. Combustível cerebral.", tip:"Evita açúcar — destrói o foco em menos de 1 hora.", tags:["nutrição"], icon:"🍳" },
+      { time:"10:10", dur:"45min", title:"Gestão: Recreio e Desporto + Afro Studio", desc:"Mensagens urgentes, tarefas da semana, Recreio e Desporto da JIMUCL, Prospecção.", tip:"Limite rígido de 45min. Usa lista de prioridades para não desviar.", tags:["ministério","trabalho"], icon:"📋" },
+      { time:"10:55", dur:"25min", title:"Preparação & Organização de Saída", desc:"Rever plano do dia, preparar material de estudo, arrumar. Saída às 11h ou 12h.", tip:"Escreve as 3 prioridades do dia numa folha antes de sair.", tags:["logística"], icon:"🎒" },
     ]
   },
   tarde: {
     label: "TARDE / ESTUDO",
-    period: "11:00 → 19:00",
+    period: "11:20 → 18:00",
     icon: "🌤",
     accentColor: "#60A5FA",
     blocks: [
-      { time:"11:00", dur:"2h", title:"Deslocação Produtiva (Táxi/Escola antes das aulas)", desc:"BBC Learning English, 6 Minute English, ou vídeos de gestão/aprendizado no YouTube/TED. ", tip:"O táxi é uma sala de aula e chegar antes das aulas— 2h por dia × 5 dias = 500h/ano de aprendizagem.", tags:["aprendizagem"], icon:"🚕" },
-      { time:"13:00", dur:"4h55min", title:"DEEP WORK #2 — Aula", desc:"Presta atenção. Faz perguntas. Toma notas estruturadas (título + pontos + dúvidas).", tip:"Técnica Pomodoro: 50min estudo → 10min pausa × 3 ciclos.", tags:["estudo"], icon:"💻", isDeep:true },
+      { time:"11:20", dur:"3h", title:"Deslocação Produtiva ", desc:"LOADING NEW. ", tip:"Time extra.", tags:["aprendizagem"], icon:"🚕" },
+      { time:"14:40", dur:"1h35min", title:"DEEP WORK #2 — Aula", desc:"Presta atenção. Faz perguntas. Toma notas estruturadas (título + pontos + dúvidas).", tip:"Técnica Pomodoro: 50min estudo → 10min pausa × 3 ciclos.", tags:["estudo"], icon:"💻", isDeep:true },
       { time:"5min", title:"Intervalos entre tempos", desc:"Lanche, hidratação, sem ecrãs nos 05min.", tip:"Sol + movimento físico resetam o foco. Não trabalhes durante esta pausa.", tags:["Hidratação","nutrição"], icon:"🍎" },
-            { time:"17:55", dur:"5min", title:"Fim das aulas — Saída", desc:"No táxi de regresso: resume mentalmente o que aprendeste hoje (3 pontos principais).", tip:"Técnica Feynman: explica o que aprendeste como se ensinasses a alguém.", tags:["estudo","reflexão"], icon:"📝" },
+            { time:"16:30", dur:"55min", title:"Fim das aulas — Saída", desc:"No táxi de regresso: resume mentalmente o que aprendeste hoje (3 pontos principais).", tip:"Técnica Feynman: explica o que aprendeste como se ensinasses a alguém.", tags:["estudo","reflexão"], icon:"📝" },
     ]
   },
   noite: {
     label: "NOITE",
-    period: "19:00 → 22:00",
+    period: "18:00 → 21:00",
     icon: "🌙",
     accentColor: "#A78BFA",
     blocks: [
-      { time:"19:00", dur:"10min", title:"Retorno & Descompressão", desc:"Chegada. 10min sem telemóvel. Transição consciente entre modo estudo e descanso.", tip:"Muda de roupa — sinal psicológico de mudança de modo para o cérebro.", tags:["recuperação"], icon:"🏠" },
-      { time:"19:10", dur:"30min", title:"Jantar Nutritivo", desc:"Proteína + vegetais + água. Refeição leve e nutritiva. Sem TV durante.", tip:"Come devagar, com gratidão. Hidratação antes e após a refeição.", tags:["nutrição"], icon:"🍽️" },
-      { time:"19:40", dur:"5min", title:"Transição", desc:"Pequena pausa antes de entrar em modo de trabalho criativo.", tip:"Prepara o espaço de trabalho antes de sentar.", tags:["recuperação"], icon:"✨" },
-      { time:"19:45", dur:"30min", title:"Secretariado — Juventude da IMUCL ou Trabalho Afro Studio", desc:"Planeamento ou revisão de actividades/dinâmicas recreativas e desportivas da Juventude Metodista..... Edição de fotos, comunicação com clientes, redes sociais, orçamentos de eventos.", tip:"Separa sempre 10min para planear o próximo evento da semana.", tags:["ministério","trabalho"],  icon:"⛪📸", isHighlight:true, highlightColor:"#F472B6" },
-      { time:"20:15", dur:"30min", title:"Aula Noturna", desc:"1 vídeo / módulo de Gestão Comercial ou um livro. Máximo 30 minutos.", tip:"Cérebro cansado retém pouco. Qualidade > quantidade neste bloco.", tags:["estudo"], icon:"🎓" },
-      { time:"20:45", dur:"30min", title:"Revisão do Dia + Plano Amanhã", desc:"3 vitórias do dia. 3 prioridades de amanhã. Agradecimento e oração.", tip:"Escreve à mão — consolida a memória e aumenta o compromisso.", tags:["reflexão","fé"], icon:"📔" },
-      { time:"21h15", dur:"45min", title:"Higiene + Ritual de Sono", desc:"Sem ecrãs. Leitura da Bíblia ou livro físico. Oração de encerramento.", tip:"Quarto fresco e escuro = sono mais profundo e reparador.", tags:["recuperação","fé"], icon:"🌙" },
-      { time:"22:00", dur:"7h30", title:"SONO REPARADOR", desc:"Recuperação muscular do treino + consolidação de toda a aprendizagem do dia.", tip:"Alarme às 5h30, fora do alcance da cama. Levanta imediatamente.", tags:["saúde"], icon:"😴", isSleep:true },
+      { time:"18:00", dur:"10min", title:"Retorno & Descompressão", desc:"Chegada. 10min sem telemóvel. Transição consciente entre modo estudo e descanso.", tip:"Muda de roupa — sinal psicológico de mudança de modo para o cérebro.", tags:["recuperação"], icon:"🏠" },
+      { time:"18:10", dur:"30min", title:"Jantar Nutritivo", desc:"Proteína + vegetais + água. Refeição leve e nutritiva. Sem TV durante.", tip:"Come devagar, com gratidão. Hidratação antes e após a refeição.", tags:["nutrição"], icon:"🍽️" },
+      { time:"18:40", dur:"5min", title:"Transição", desc:"Pequena pausa antes de entrar em modo de trabalho criativo.", tip:"Prepara o espaço de trabalho antes de sentar.", tags:["recuperação"], icon:"✨" },
+      { time:"18:45", dur:"30min", title:"Secretariado — Juventude da IMUCL ou Trabalho Afro Studio", desc:"Planeamento ou revisão de actividades/dinâmicas recreativas e desportivas da Juventude Metodista..... Edição de fotos, comunicação com clientes, Prospecção, orçamentos de eventos.", tip:"Separa sempre 10min para planear o próximo evento da semana.", tags:["ministério","trabalho"],  icon:"⛪📸", isHighlight:true, highlightColor:"#F472B6" },
+      { time:"19:15", dur:"30min", title:"Break Cooling of day", desc:"Fazer as tarefas todas, ouvir louvores . Máximo 30 minutos.", tip:"Cérebro cansado retém pouco. Qualidade > quantidade neste bloco.", tags:["estudo"], icon:"🎓" },
+      { time:"19:45", dur:"30min", title:"Revisão do Dia + Plano Amanhã", desc:"3 vitórias do dia. 3 prioridades de amanhã. Agradecimento e oração.", tip:"Escreve à mão — consolida a memória e aumenta o compromisso.", tags:["reflexão","fé"], icon:"📔" },
+      { time:"20h15", dur:"45min", title:"Higiene + Talk to Father", desc:"Sem ecrãs. Leitura da Bíblia . Oração de encerramento.", tip:"Quarto fresco e escuro = sono mais profundo e reparador.", tags:["recuperação","fé"], icon:"🌙" },
+      { time:"21:00", dur:"8h00", title:"SONO REPARADOR", desc:"Recuperação muscular do treino + consolidação de toda a aprendizagem do dia.", tip:"Alarme às 5h30, fora do alcance da cama. Levanta imediatamente.", tags:["saúde"], icon:"😴", isSleep:true },
     ]
   }
 };
 
 const studyRotation = [
-  { day:"SEG", focus:"Programação", sub:"Lógica + Prática", color:"#60A5FA" },
-  { day:"TER", focus:"Photoshop / Lightroom", sub:"Design Visual", color:"#F472B6" },
-  { day:"QUA", focus:"Inglês", sub:"Fluência + Escrita", color:"#86EFAC" },
-  { day:"QUI", focus:"Gestão Comercial", sub:"Negócios e Clientes", color:"#F7B731" },
-  { day:"SEX", focus:"Grow up mind and CapCut.", sub:"Videos & Livros", color:"#FB923C" },
+  { day:"SEG", focus:"Cyber Security + IA", sub:"Lógica + Prática", color:"#60A5FA" },
+  { day:"TER", focus:"CapCut/Listening", sub:"Video Maker", color:"#F472B6" },
+  { day:"QUA", focus:"Inglês", sub:"Fluência", color:"#86EFAC" },
+  { day:"QUI", focus:"Gest.Comercial/Reading", sub:"Negócios e Clientes", color:"#F7B731" },
+  { day:"SEX", focus:"Filosofia/Speaking ", sub:"Comunicação + Pensamento Crítico", color:"#FB923C" },
 ];
 
 const pillars = [
   { icon:"🙏", label:"FÉ", desc:"Serviço ao Senhor e à Juventude Metodista Unida", color:"#A78BFA" },
   { icon:"⚽", label:"DESPORTO", desc:"Treino diário 30min — médio-campista", color:"#2DD4BF" },
-  { icon:"🧠", label:"APRENDIZAGEM", desc:"Prog · Design · Inglês · Gestão · CapCut", color:"#60A5FA" },
-  { icon:"📸", label:"NEGÓCIO", desc:"Afro Studio + Gestor Comercial/Operacio.", color:"#F472B6" },
+  { icon:"🧠", label:"APRENDIZAGEM", desc:"Cyber · Inglês · Gestão · CapCut · IA ", color:"#60A5FA" },
+  { icon:"📸", label:"AFROSTUDIO", desc:"Gestor Comercial + Fotógrafo.", color:"#F472B6" },
   { icon:"🍃", label:"SAÚDE", desc:"Nutrição · Sono · Hidratação · Treino", color:"#86EFAC" },
   { icon:"📈", label:"CRESCIMENTO", desc:"Revisão diária · Metas · Evolução", color:"#F7B731" },
 ];
 
 const goldenRules = [
   ["🔇","Modo AVIÃO durante todos os blocos Deep Work — sem excepções"],
-  ["📵","Sem redes sociais antes das 12h00 — protege o foco matinal sagrado"],
-  ["💧","3 litros de água diários — hidratação directa = performance cognitiva"],
+  ["📵","Sem redes sociais(-WhatsApp) antes das 12h00 — protege o foco matinal sagrado"],
+  ["💧","2 litros de água diários — hidratação directa = performance cognitiva"],
   ["📒","1 diário físico — escreve metas, vitórias e plano do dia à mão"],
   ["🔁","Revisão semanal todo domingo — ajusta o que não funcionou"],
   ["📈","Aplica o que estudas ao Afro Studio — aprender fazendo é 10× mais rápido"],
   ["⚽","Os teus 30min de treino são inegociáveis — corpo forte = mente forte"],
-  ["🌙","22h00 é a hora de dormir — o sono é o teu melhor suplemento"],
+  ["🌙","21h00 é a hora de dormir — o sono é o teu melhor suplemento"],
 ];
 
 // ─── HABITS DATA ──────────────────────────────────────────────────────────────
 
 const habitsData = {
   morning: [
-    { emoji:"💧", label:"Acordar 5h30 + copo de água" },
+    { emoji:"💧", label:"Acordar 5h30 + copo ou garrafa de água" },
     { emoji:"🙏", label:"Oração / Meditação (20 min)" },
     { emoji:"⚽", label:"Treino de médio campista (30 min)" },
     { emoji:"🥗", label:"Pequeno-almoço nutritivo" },
@@ -89,28 +89,20 @@ const habitsData = {
   day: [
     { emoji:"📚", label:"Estudo matinal (90min — bloco 1)" },
     { emoji:"⛪", label:"Tarefa Igreja / Recreio & Desporto" },
-    { emoji:"🎒", label:"Saída pontual 11h para escola" },
+    { emoji:"🎒", label:"Saída  para escola" },
     { emoji:"🏫", label:"Presença total na escola" },
   ],
   night: [
-    { emoji:"📕", label:"Leitura (30 min)" },
+    { emoji:"📕", label:"Leitura da Bíblia" },
     { emoji:"📝", label:"Revisão + plano amanhã" },
-    { emoji:"😴", label:"Dormir às 22h00" },
+    { emoji:"😴", label:"Dormir às 21h00" },
   ]
 };
 
 const dailyQuestions = [
-  "O que fará maior diferença hoje?",
-  "Que habilidade estás a desenvolver esta semana?",
-  "O que podes concluir antes das 10h?",
-  "Qual é o maior obstáculo actual?",
-  "Que tarefa estás a evitar?",
-  "Como podes servir melhor hoje?",
-  "Que decisão tens adiado que podes tomar agora?",
-  "O que fiz bem ?",
-  "O que posso melhorar ?",
-  "Qual é a prioridade de amanhã ? ",
-  "O que melhorar amanhã?" ,
+  "O qual é a menor acção que posso fazer hoje que me aproxime do objectivo ?",
+   "O que fiz bem ?",
+ 
 ];
 
 // ─── DATE HELPERS ─────────────────────────────────────────────────────────────
@@ -279,7 +271,7 @@ function FocusSection() {
       items:[
         "<strong>45 min de foco total</strong> → 10 min de pausa activa",
         "Durante os 45min: só UMA tarefa — sem multitasking",
-        "Pausa activa: levanta, água, 10 polichinelos, olha pela janela",
+        "Pausa activa: levanta, água, respirar profundamente, olha pela janela",
         "Após 3 pomodoros: pausa maior de 20 min (come, descansa)",
       ]
     },
@@ -287,11 +279,11 @@ function FocusSection() {
       color:"#86EFAC", bg:"rgba(134,239,172,0.04)", border:"rgba(134,239,172,0.15)",
       title:"🗓 PLANEAMENTO SEMANAL DE ESTUDOS",
       items:[
-        "<strong>Segunda:</strong> Programação (linguagem que escolheres)",
-        "<strong>Terça:</strong> Photoshop + Lightroom (técnicas de edição)",
-        "<strong>Quarta:</strong> Inglês (gramática, vocabulário, conversação)",
-        "<strong>Quinta:</strong> Gestão Comercial + Operacional + Marketing",
-        "<strong>Sexta:</strong> Grow up + CapCut (edição de vídeo, reels, conteúdo)",
+        "<strong>Segunda:</strong> Cyber Security + IA",
+        "<strong>Terça:</strong> CapCut + English-Listening ",
+        "<strong>Quarta:</strong> Inglês ",
+        "<strong>Quinta:</strong> Gestão Comercial + English-Reading",
+        "<strong>Sexta:</strong> Filosofia + Comunicação + English-Speaking",
         "<strong>Sábado manhã:</strong> Revisão geral + Projecto livre",
         "<strong>Domingo:</strong> Igreja, família, descanso activo, planeamento da semana seguinte",
       ]
@@ -300,9 +292,7 @@ function FocusSection() {
       color:"#FB923C", bg:"rgba(251,146,60,0.04)", border:"rgba(251,146,60,0.15)",
       title:"📸 CRESCIMENTO AFRO STUDIO",
       items:[
-        "1 foto editada por dia — mesmo que simples, mantém o músculo criativo",
-        "Estudar 1 técnica nova de Lightroom por semana",
-        "Criar portfólio digital progressivo",
+        "1 video por dia — mesmo que simples, mantém o músculo criativo",
         "Aprender sobre precificação e captação de clientes (gestão comercial aplicada)",
         "CapCut para criar reels dos eventos fotografados → mais visibilidade",
       ]
@@ -467,15 +457,15 @@ function TimerSection() {
 
 function WeekSection() {
   const days = [
-    { name:"SEG", items:["⚽ Treino 6h","💻 Programação","⛪ Igreja tasks","🏫 Escola 13h","📖 Leitura noite"] },
-    { name:"TER", items:["⚽ Treino 6h","🎨 Photoshop/Lr","📸 Afro Studio","🏫 Escola 13h","📖 Leitura noite"] },
-    { name:"QUA", items:["⚽ Treino 6h","🇬🇧 Inglês","⛪ Igreja tasks","🏫 Escola 13h","📖 Leitura noite"] },
-    { name:"QUI", items:["⚽ Treino 6h","💼 Gestão/Mktg","📸 Afro Studio","🏫 Escola 13h","📖 Leitura noite"] },
-    { name:"SEX", items:["⚽ Treino 6h","🎬 CapCut/Grow up","📸 Afro Studio","🏫 Escola 13h","📖 Reflexão semanal"] },
+    { name:"SEG", items:["⚽ Treino 6h","💻 Cyber+IA","⛪ Igreja tasks","🏫 Escola 14h","📖 Leitura noite"] },
+    { name:"TER", items:["⚽ Treino 6h","🎬 CapCut","📸 Afro Studio","🏫 Escola 14h","📖 Leitura noite"] },
+    { name:"QUA", items:["⚽ Treino 6h","🇬🇧 Inglês","⛪ Igreja tasks","🏫 Escola 14h","📖 Leitura noite"] },
+    { name:"QUI", items:["⚽ Treino 6h","💼 Gestão/Mktg","📸 Afro Studio","🏫 Escola 14h","📖 Leitura noite"] },
+    { name:"SEX", items:["⚽ Treino 6h","🧠Filosofia","📸 Afro Studio","🏫 Escola 14h","📖 Reflexão semanal"] },
   ];
 
   const goals = [
-    { num:1, color:"#00E5FF", title:"Dominar Lightroom — Edição profissional", desc:"Meta: editar um evento completo em menos de 2 horas" },
+    { num:1, color:"#00E5FF", title:"Dominar CapCut — Edição profissional", desc:"Meta: editar um video " },
     { num:2, color:"#00FF88", title:"Inglês nível conversacional básico", desc:"Meta: apresentar a tua empresa em inglês sem hesitação" },
     { num:3, color:"#FB923C", title:"Criar plano de negócio Afro Studio", desc:"Meta: preços, pacotes, estratégia de captação de clientes definidos" },
     { num:4, color:"#A78BFA", title:"Construir rotina 90 dias seguidos", desc:"Meta: 90% de consistência no tracker de hábitos" },
@@ -489,7 +479,7 @@ function WeekSection() {
           📅 ESTRUTURA DA SEMANA
         </div>
         <div style={{ fontSize:13, color:"#92751A", lineHeight:1.6 }}>
-          Escola 13h–18h/19h · Sais de casa 11h · Manhã livre para produzir · Noite para crescer
+          Escola 14h–18h/19h · Sais de casa 11h · Manhã livre para produzir · Noite para crescer
         </div>
       </div>
 
@@ -594,10 +584,10 @@ function X10IASection() {
         </div>
         {[
           { icon:"⛪", color:"rgba(155,89,255,0.12)", title:" Igreja Metodista Unida Central — Secretário", desc:"Recreio & Desporto da Juventude. Servir com excelência é liderança." },
-          { icon:"📸", color:"rgba(255,140,0,0.12)", title:"Afro Studio", desc:"Dominar CapCut, Lightroom e Photoshop para elevar qualidade e velocidade de entrega." },
-          { icon:"💼", color:"rgba(0,229,255,0.12)", title:"Grow Up Mind - Bíblia, Livros sobre Filosofia, Marketing, Gestão Comercial ", desc:"Ler, Aprender, aplicar, crescer." },
+          { icon:"📸", color:"rgba(255,140,0,0.12)", title:"Afro Studio", desc:"Dominar fotografias e CapCut para elevar qualidade." },
+          { icon:"💼", color:"rgba(0,229,255,0.12)", title:"Grow Up Mind - Bíblia, Filosofia, Gestão Comercial ", desc:"Ler, Aprender, aplicar, crescer." },
           { icon:"⚽", color:"rgba(0,255,136,0.12)", title:"Consistência : Médio Central — Treino Diário 30min", desc:"Disciplina física = disciplina mental. Os teus exercícios específicos todos os dias." },
-          { icon:"🧠", color:"rgba(255,215,0,0.12)", title:"Estudo Contínuo", desc:"Programação · Inglês." },
+          { icon:"🧠", color:"rgba(255,215,0,0.12)", title:"Estudo Contínuo", desc:"Cyber · Inglês." },
         ].map((p, i) => (
           <div key={i} style={{ display:"flex", alignItems:"flex-start", gap:12, paddingBottom:12, marginBottom:12, borderBottom: i < 4 ? "1px solid rgba(255,255,255,0.04)" : "none" }}>
             <div style={{ width:36, height:36, borderRadius:8, background:p.color, display:"flex", alignItems:"center", justifyContent:"center", fontSize:18, flexShrink:0 }}>{p.icon}</div>
@@ -615,7 +605,7 @@ function X10IASection() {
           🌙 REFLEXÃO NOTURNA
         </div>
         <div style={{ fontSize:12, color:"#4B5563", marginBottom:12, lineHeight:1.6 }}>
-          1 — O que fiz bem?&nbsp;&nbsp;<br />2 — O que posso melhorar?&nbsp;&nbsp;<br />3 — Qual é a prioridade de amanhã?
+          1 — O que fiz bem?&nbsp;&nbsp;<br />
         </div>
         <textarea
           value={reflection}
@@ -725,7 +715,7 @@ export default function RotinasX10() {
             <span style={{ color:"#F7B731" }}>10× CONSISTÊNCIA</span>
           </h1>
           <p style={{ color:"#4B5563", fontSize:13, maxWidth:420, margin:"0 auto", lineHeight:1.6 }}>
-            Secretário · Fotógrafo · Gestor · Médio Central · Programador
+            Secretário · Fotógrafo · Gestor · Médio Central · Cyber Security 
           </p>
         </div>
 
@@ -920,7 +910,7 @@ export default function RotinasX10() {
             {/* Footer */}
             <div style={{ marginTop:36, textAlign:"center", borderTop:"1px solid rgba(255,255,255,0.05)", paddingTop:20 }}>
               <span style={{ fontFamily:"'DM Mono',monospace", fontSize:10, color:"#1F2937", letterSpacing:1.5 }}>
-                X10THINK • SISTEMA DE ALTA CONSISTÊNCIA • LUANDA, ANGOLA
+               • SISTEMA DE ALTA CONSISTÊNCIA •
               </span>
             </div>
           </div>
